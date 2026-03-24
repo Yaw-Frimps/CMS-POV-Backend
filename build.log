@@ -1,0 +1,632 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< com.churchmanagement:backend >--------------------
+[INFO] Building backend 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ backend ---
+[INFO] Deleting C:\Users\User\Desktop\myprojects\real projects\church-management\backend\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ backend ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ backend ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 41 source files with javac [debug parameters release 21] to target\classes
+[INFO] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/security/JwtAuthenticationFilter.java: C:\Users\User\Desktop\myprojects\real projects\church-management\backend\src\main\java\com\churchmanagement\backend\security\JwtAuthenticationFilter.java uses or overrides a deprecated API.
+[INFO] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/security/JwtAuthenticationFilter.java: Recompile with -Xlint:deprecation for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/dto/ChurchGroupDto.java:[19,20] variable category is already defined in class com.churchmanagement.backend.dto.ChurchGroupDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/model/User.java:[19,8] com.churchmanagement.backend.model.User is not abstract and does not override abstract method getPassword() in org.springframework.security.core.userdetails.UserDetails
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[40,69] cannot find symbol
+  symbol:   method getEventId()
+  location: variable attendanceDto of type com.churchmanagement.backend.dto.AttendanceDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[43,72] cannot find symbol
+  symbol:   method getMemberId()
+  location: variable attendanceDto of type com.churchmanagement.backend.dto.AttendanceDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[47,51] cannot find symbol
+  symbol:   method builder()
+  location: class com.churchmanagement.backend.model.Attendance
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[50,53] cannot find symbol
+  symbol:   method getNotes()
+  location: variable attendanceDto of type com.churchmanagement.backend.dto.AttendanceDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[52,62] cannot find symbol
+  symbol:   method getCheckInTime()
+  location: variable attendanceDto of type com.churchmanagement.backend.dto.AttendanceDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[52,103] cannot find symbol
+  symbol:   method getCheckInTime()
+  location: variable attendanceDto of type com.churchmanagement.backend.dto.AttendanceDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[65,55] cannot find symbol
+  symbol:   method getMember()
+  location: variable attendance of type com.churchmanagement.backend.model.Attendance
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[66,61] cannot find symbol
+  symbol:   method getMember()
+  location: variable attendance of type com.churchmanagement.backend.model.Attendance
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[60,37] cannot find symbol
+  symbol:   method builder()
+  location: class com.churchmanagement.backend.dto.AttendanceDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[61,47] cannot find symbol
+  symbol:   method getId()
+  location: variable attendance of type com.churchmanagement.backend.model.Attendance
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[62,52] cannot find symbol
+  symbol:   method getEvent()
+  location: variable attendance of type com.churchmanagement.backend.model.Attendance
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[63,55] cannot find symbol
+  symbol:   method getEvent()
+  location: variable attendance of type com.churchmanagement.backend.model.Attendance
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[64,53] cannot find symbol
+  symbol:   method getMember()
+  location: variable attendance of type com.churchmanagement.backend.model.Attendance
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[67,56] cannot find symbol
+  symbol:   method getCheckInTime()
+  location: variable attendance of type com.churchmanagement.backend.model.Attendance
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[68,50] cannot find symbol
+  symbol:   method getNotes()
+  location: variable attendance of type com.churchmanagement.backend.model.Attendance
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[31,49] cannot find symbol
+  symbol:   method getEmail()
+  location: variable request of type com.churchmanagement.backend.dto.RegisterRequest
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[35,24] cannot find symbol
+  symbol:   method builder()
+  location: class com.churchmanagement.backend.model.User
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[36,31] cannot find symbol
+  symbol:   method getEmail()
+  location: variable request of type com.churchmanagement.backend.dto.RegisterRequest
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[37,57] cannot find symbol
+  symbol:   method getPassword()
+  location: variable request of type com.churchmanagement.backend.dto.RegisterRequest
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[38,30] cannot find symbol
+  symbol:   method isAdmin()
+  location: variable request of type com.churchmanagement.backend.dto.RegisterRequest
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[44,28] cannot find symbol
+  symbol:   method builder()
+  location: class com.churchmanagement.backend.model.Member
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[45,35] cannot find symbol
+  symbol:   method getFirstName()
+  location: variable request of type com.churchmanagement.backend.dto.RegisterRequest
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[46,34] cannot find symbol
+  symbol:   method getLastName()
+  location: variable request of type com.churchmanagement.backend.dto.RegisterRequest
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[54,28] cannot find symbol
+  symbol:   method builder()
+  location: class com.churchmanagement.backend.dto.AuthResponse
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[65,32] cannot find symbol
+  symbol:   method getEmail()
+  location: variable request of type com.churchmanagement.backend.dto.AuthRequest
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[66,32] cannot find symbol
+  symbol:   method getPassword()
+  location: variable request of type com.churchmanagement.backend.dto.AuthRequest
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[67,54] cannot find symbol
+  symbol:   method getEmail()
+  location: variable request of type com.churchmanagement.backend.dto.AuthRequest
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[71,22] invalid method reference
+  cannot find symbol
+    symbol:   method getId()
+    location: class com.churchmanagement.backend.model.Member
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[76,28] cannot find symbol
+  symbol:   method builder()
+  location: class com.churchmanagement.backend.dto.AuthResponse
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[28,40] cannot find symbol
+  symbol:   method builder()
+  location: class com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[29,26] cannot find symbol
+  symbol:   method getName()
+  location: variable dto of type com.churchmanagement.backend.dto.ChurchGroupDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[30,33] cannot find symbol
+  symbol:   method getDescription()
+  location: variable dto of type com.churchmanagement.backend.dto.ChurchGroupDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[31,37] cannot find symbol
+  symbol:   method getMeetingSchedule()
+  location: variable dto of type com.churchmanagement.backend.dto.ChurchGroupDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[32,30] cannot find symbol
+  symbol:   method getCategory()
+  location: variable dto of type com.churchmanagement.backend.dto.ChurchGroupDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[32,58] cannot find symbol
+  symbol:   method getCategory()
+  location: variable dto of type com.churchmanagement.backend.dto.ChurchGroupDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[47,19] cannot find symbol
+  symbol:   method getMembers()
+  location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[48,18] cannot find symbol
+  symbol:   method getMembers()
+  location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[49,19] cannot find symbol
+  symbol:   method getGroups()
+  location: variable member of type com.churchmanagement.backend.model.Member
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[63,18] cannot find symbol
+  symbol:   method getMembers()
+  location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[64,18] cannot find symbol
+  symbol:   method getMembers()
+  location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[65,19] cannot find symbol
+  symbol:   method getGroups()
+  location: variable member of type com.churchmanagement.backend.model.Member
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[74,30] cannot find symbol
+  symbol:   method builder()
+  location: class com.churchmanagement.backend.dto.ChurchGroupDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[75,26] cannot find symbol
+  symbol:   method getId()
+  location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[76,28] cannot find symbol
+  symbol:   method getName()
+  location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[77,35] cannot find symbol
+  symbol:   method getDescription()
+  location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[78,39] cannot find symbol
+  symbol:   method getMeetingSchedule()
+  location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[79,35] cannot find symbol
+  symbol:   method getMembers()
+  location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[79,64] cannot find symbol
+  symbol:   method getMembers()
+  location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[80,32] cannot find symbol
+  symbol:   method getCategory()
+  location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[80,62] cannot find symbol
+  symbol:   method getCategory()
+  location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[38,24] cannot find symbol
+  symbol:   method getMemberId()
+  location: variable donationDto of type com.churchmanagement.backend.dto.DonationDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[39,59] cannot find symbol
+  symbol:   method getMemberId()
+  location: variable donationDto of type com.churchmanagement.backend.dto.DonationDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[43,37] cannot find symbol
+  symbol:   method builder()
+  location: class com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[44,36] cannot find symbol
+  symbol:   method getAmount()
+  location: variable donationDto of type com.churchmanagement.backend.dto.DonationDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[45,34] cannot find symbol
+  symbol:   method getFund()
+  location: variable donationDto of type com.churchmanagement.backend.dto.DonationDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[46,43] cannot find symbol
+  symbol:   method getPaymentMethod()
+  location: variable donationDto of type com.churchmanagement.backend.dto.DonationDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[47,43] cannot find symbol
+  symbol:   method getTransactionId()
+  location: variable donationDto of type com.churchmanagement.backend.dto.DonationDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[49,36] cannot find symbol
+  symbol:   method getDonationDate()
+  location: variable donationDto of type com.churchmanagement.backend.dto.DonationDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[49,76] cannot find symbol
+  symbol:   method getDonationDate()
+  location: variable donationDto of type com.churchmanagement.backend.dto.DonationDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[57,27] cannot find symbol
+  symbol:   method builder()
+  location: class com.churchmanagement.backend.dto.DonationDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[58,29] cannot find symbol
+  symbol:   method getId()
+  location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[59,33] cannot find symbol
+  symbol:   method getAmount()
+  location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[60,31] cannot find symbol
+  symbol:   method getFund()
+  location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[61,40] cannot find symbol
+  symbol:   method getPaymentMethod()
+  location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[62,40] cannot find symbol
+  symbol:   method getTransactionId()
+  location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[63,39] cannot find symbol
+  symbol:   method getDonationDate()
+  location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[64,35] cannot find symbol
+  symbol:   method getMember()
+  location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[64,66] cannot find symbol
+  symbol:   method getMember()
+  location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[65,37] cannot find symbol
+  symbol:   method getMember()
+  location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[66,35] cannot find symbol
+  symbol:   method getMember()
+  location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[66,79] cannot find symbol
+  symbol:   method getMember()
+  location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[25,28] cannot find symbol
+  symbol:   method builder()
+  location: class com.churchmanagement.backend.model.Event
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[26,32] cannot find symbol
+  symbol:   method getTitle()
+  location: variable eventDto of type com.churchmanagement.backend.dto.EventDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[27,38] cannot find symbol
+  symbol:   method getDescription()
+  location: variable eventDto of type com.churchmanagement.backend.dto.EventDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[28,35] cannot find symbol
+  symbol:   method getLocation()
+  location: variable eventDto of type com.churchmanagement.backend.dto.EventDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[29,35] cannot find symbol
+  symbol:   method getImageUrl()
+  location: variable eventDto of type com.churchmanagement.backend.dto.EventDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[30,36] cannot find symbol
+  symbol:   method getStartTime()
+  location: variable eventDto of type com.churchmanagement.backend.dto.EventDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[31,34] cannot find symbol
+  symbol:   method getEndTime()
+  location: variable eventDto of type com.churchmanagement.backend.dto.EventDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[41,24] cannot find symbol
+  symbol:   method builder()
+  location: class com.churchmanagement.backend.dto.EventDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[42,26] cannot find symbol
+  symbol:   method getId()
+  location: variable event of type com.churchmanagement.backend.model.Event
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[43,29] cannot find symbol
+  symbol:   method getTitle()
+  location: variable event of type com.churchmanagement.backend.model.Event
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[44,35] cannot find symbol
+  symbol:   method getDescription()
+  location: variable event of type com.churchmanagement.backend.model.Event
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[45,32] cannot find symbol
+  symbol:   method getLocation()
+  location: variable event of type com.churchmanagement.backend.model.Event
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[46,32] cannot find symbol
+  symbol:   method getImageUrl()
+  location: variable event of type com.churchmanagement.backend.model.Event
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[47,33] cannot find symbol
+  symbol:   method getStartTime()
+  location: variable event of type com.churchmanagement.backend.model.Event
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[48,31] cannot find symbol
+  symbol:   method getEndTime()
+  location: variable event of type com.churchmanagement.backend.model.Event
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[51,42] cannot find symbol
+  symbol:   method getDateOfBirth()
+  location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[52,46] cannot find symbol
+  symbol:   method getProfileImageUrl()
+  location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[53,22] cannot find symbol
+  symbol:   method getFirstName()
+  location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[54,44] cannot find symbol
+  symbol:   method getFirstName()
+  location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[55,22] cannot find symbol
+  symbol:   method getLastName()
+  location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[56,43] cannot find symbol
+  symbol:   method getLastName()
+  location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[57,22] cannot find symbol
+  symbol:   method getPhone()
+  location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[58,40] cannot find symbol
+  symbol:   method getPhone()
+  location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[59,22] cannot find symbol
+  symbol:   method getAddress()
+  location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[60,42] cannot find symbol
+  symbol:   method getAddress()
+  location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/MemberService.java:[35,31] cannot find symbol
+  symbol:   method builder()
+  location: class com.churchmanagement.backend.model.Member
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/MemberService.java:[36,37] cannot find symbol
+  symbol:   method getFirstName()
+  location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.863 s
+[INFO] Finished at: 2026-03-17T16:54:50Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.14.1:compile (default-compile) on project backend: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/dto/ChurchGroupDto.java:[19,20] variable category is already defined in class com.churchmanagement.backend.dto.ChurchGroupDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/model/User.java:[19,8] com.churchmanagement.backend.model.User is not abstract and does not override abstract method getPassword() in org.springframework.security.core.userdetails.UserDetails
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[40,69] cannot find symbol
+[ERROR]   symbol:   method getEventId()
+[ERROR]   location: variable attendanceDto of type com.churchmanagement.backend.dto.AttendanceDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[43,72] cannot find symbol
+[ERROR]   symbol:   method getMemberId()
+[ERROR]   location: variable attendanceDto of type com.churchmanagement.backend.dto.AttendanceDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[47,51] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.churchmanagement.backend.model.Attendance
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[50,53] cannot find symbol
+[ERROR]   symbol:   method getNotes()
+[ERROR]   location: variable attendanceDto of type com.churchmanagement.backend.dto.AttendanceDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[52,62] cannot find symbol
+[ERROR]   symbol:   method getCheckInTime()
+[ERROR]   location: variable attendanceDto of type com.churchmanagement.backend.dto.AttendanceDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[52,103] cannot find symbol
+[ERROR]   symbol:   method getCheckInTime()
+[ERROR]   location: variable attendanceDto of type com.churchmanagement.backend.dto.AttendanceDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[65,55] cannot find symbol
+[ERROR]   symbol:   method getMember()
+[ERROR]   location: variable attendance of type com.churchmanagement.backend.model.Attendance
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[66,61] cannot find symbol
+[ERROR]   symbol:   method getMember()
+[ERROR]   location: variable attendance of type com.churchmanagement.backend.model.Attendance
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[60,37] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.churchmanagement.backend.dto.AttendanceDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[61,47] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable attendance of type com.churchmanagement.backend.model.Attendance
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[62,52] cannot find symbol
+[ERROR]   symbol:   method getEvent()
+[ERROR]   location: variable attendance of type com.churchmanagement.backend.model.Attendance
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[63,55] cannot find symbol
+[ERROR]   symbol:   method getEvent()
+[ERROR]   location: variable attendance of type com.churchmanagement.backend.model.Attendance
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[64,53] cannot find symbol
+[ERROR]   symbol:   method getMember()
+[ERROR]   location: variable attendance of type com.churchmanagement.backend.model.Attendance
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[67,56] cannot find symbol
+[ERROR]   symbol:   method getCheckInTime()
+[ERROR]   location: variable attendance of type com.churchmanagement.backend.model.Attendance
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AttendanceService.java:[68,50] cannot find symbol
+[ERROR]   symbol:   method getNotes()
+[ERROR]   location: variable attendance of type com.churchmanagement.backend.model.Attendance
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[31,49] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable request of type com.churchmanagement.backend.dto.RegisterRequest
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[35,24] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.churchmanagement.backend.model.User
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[36,31] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable request of type com.churchmanagement.backend.dto.RegisterRequest
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[37,57] cannot find symbol
+[ERROR]   symbol:   method getPassword()
+[ERROR]   location: variable request of type com.churchmanagement.backend.dto.RegisterRequest
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[38,30] cannot find symbol
+[ERROR]   symbol:   method isAdmin()
+[ERROR]   location: variable request of type com.churchmanagement.backend.dto.RegisterRequest
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[44,28] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.churchmanagement.backend.model.Member
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[45,35] cannot find symbol
+[ERROR]   symbol:   method getFirstName()
+[ERROR]   location: variable request of type com.churchmanagement.backend.dto.RegisterRequest
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[46,34] cannot find symbol
+[ERROR]   symbol:   method getLastName()
+[ERROR]   location: variable request of type com.churchmanagement.backend.dto.RegisterRequest
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[54,28] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.churchmanagement.backend.dto.AuthResponse
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[65,32] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable request of type com.churchmanagement.backend.dto.AuthRequest
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[66,32] cannot find symbol
+[ERROR]   symbol:   method getPassword()
+[ERROR]   location: variable request of type com.churchmanagement.backend.dto.AuthRequest
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[67,54] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable request of type com.churchmanagement.backend.dto.AuthRequest
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[71,22] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method getId()
+[ERROR]     location: class com.churchmanagement.backend.model.Member
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/AuthService.java:[76,28] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.churchmanagement.backend.dto.AuthResponse
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[28,40] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[29,26] cannot find symbol
+[ERROR]   symbol:   method getName()
+[ERROR]   location: variable dto of type com.churchmanagement.backend.dto.ChurchGroupDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[30,33] cannot find symbol
+[ERROR]   symbol:   method getDescription()
+[ERROR]   location: variable dto of type com.churchmanagement.backend.dto.ChurchGroupDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[31,37] cannot find symbol
+[ERROR]   symbol:   method getMeetingSchedule()
+[ERROR]   location: variable dto of type com.churchmanagement.backend.dto.ChurchGroupDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[32,30] cannot find symbol
+[ERROR]   symbol:   method getCategory()
+[ERROR]   location: variable dto of type com.churchmanagement.backend.dto.ChurchGroupDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[32,58] cannot find symbol
+[ERROR]   symbol:   method getCategory()
+[ERROR]   location: variable dto of type com.churchmanagement.backend.dto.ChurchGroupDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[47,19] cannot find symbol
+[ERROR]   symbol:   method getMembers()
+[ERROR]   location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[48,18] cannot find symbol
+[ERROR]   symbol:   method getMembers()
+[ERROR]   location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[49,19] cannot find symbol
+[ERROR]   symbol:   method getGroups()
+[ERROR]   location: variable member of type com.churchmanagement.backend.model.Member
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[63,18] cannot find symbol
+[ERROR]   symbol:   method getMembers()
+[ERROR]   location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[64,18] cannot find symbol
+[ERROR]   symbol:   method getMembers()
+[ERROR]   location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[65,19] cannot find symbol
+[ERROR]   symbol:   method getGroups()
+[ERROR]   location: variable member of type com.churchmanagement.backend.model.Member
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[74,30] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.churchmanagement.backend.dto.ChurchGroupDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[75,26] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[76,28] cannot find symbol
+[ERROR]   symbol:   method getName()
+[ERROR]   location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[77,35] cannot find symbol
+[ERROR]   symbol:   method getDescription()
+[ERROR]   location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[78,39] cannot find symbol
+[ERROR]   symbol:   method getMeetingSchedule()
+[ERROR]   location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[79,35] cannot find symbol
+[ERROR]   symbol:   method getMembers()
+[ERROR]   location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[79,64] cannot find symbol
+[ERROR]   symbol:   method getMembers()
+[ERROR]   location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[80,32] cannot find symbol
+[ERROR]   symbol:   method getCategory()
+[ERROR]   location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/ChurchGroupService.java:[80,62] cannot find symbol
+[ERROR]   symbol:   method getCategory()
+[ERROR]   location: variable group of type com.churchmanagement.backend.model.ChurchGroup
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[38,24] cannot find symbol
+[ERROR]   symbol:   method getMemberId()
+[ERROR]   location: variable donationDto of type com.churchmanagement.backend.dto.DonationDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[39,59] cannot find symbol
+[ERROR]   symbol:   method getMemberId()
+[ERROR]   location: variable donationDto of type com.churchmanagement.backend.dto.DonationDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[43,37] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[44,36] cannot find symbol
+[ERROR]   symbol:   method getAmount()
+[ERROR]   location: variable donationDto of type com.churchmanagement.backend.dto.DonationDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[45,34] cannot find symbol
+[ERROR]   symbol:   method getFund()
+[ERROR]   location: variable donationDto of type com.churchmanagement.backend.dto.DonationDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[46,43] cannot find symbol
+[ERROR]   symbol:   method getPaymentMethod()
+[ERROR]   location: variable donationDto of type com.churchmanagement.backend.dto.DonationDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[47,43] cannot find symbol
+[ERROR]   symbol:   method getTransactionId()
+[ERROR]   location: variable donationDto of type com.churchmanagement.backend.dto.DonationDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[49,36] cannot find symbol
+[ERROR]   symbol:   method getDonationDate()
+[ERROR]   location: variable donationDto of type com.churchmanagement.backend.dto.DonationDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[49,76] cannot find symbol
+[ERROR]   symbol:   method getDonationDate()
+[ERROR]   location: variable donationDto of type com.churchmanagement.backend.dto.DonationDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[57,27] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.churchmanagement.backend.dto.DonationDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[58,29] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[59,33] cannot find symbol
+[ERROR]   symbol:   method getAmount()
+[ERROR]   location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[60,31] cannot find symbol
+[ERROR]   symbol:   method getFund()
+[ERROR]   location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[61,40] cannot find symbol
+[ERROR]   symbol:   method getPaymentMethod()
+[ERROR]   location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[62,40] cannot find symbol
+[ERROR]   symbol:   method getTransactionId()
+[ERROR]   location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[63,39] cannot find symbol
+[ERROR]   symbol:   method getDonationDate()
+[ERROR]   location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[64,35] cannot find symbol
+[ERROR]   symbol:   method getMember()
+[ERROR]   location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[64,66] cannot find symbol
+[ERROR]   symbol:   method getMember()
+[ERROR]   location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[65,37] cannot find symbol
+[ERROR]   symbol:   method getMember()
+[ERROR]   location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[66,35] cannot find symbol
+[ERROR]   symbol:   method getMember()
+[ERROR]   location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/DonationService.java:[66,79] cannot find symbol
+[ERROR]   symbol:   method getMember()
+[ERROR]   location: variable donation of type com.churchmanagement.backend.model.Donation
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[25,28] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.churchmanagement.backend.model.Event
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[26,32] cannot find symbol
+[ERROR]   symbol:   method getTitle()
+[ERROR]   location: variable eventDto of type com.churchmanagement.backend.dto.EventDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[27,38] cannot find symbol
+[ERROR]   symbol:   method getDescription()
+[ERROR]   location: variable eventDto of type com.churchmanagement.backend.dto.EventDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[28,35] cannot find symbol
+[ERROR]   symbol:   method getLocation()
+[ERROR]   location: variable eventDto of type com.churchmanagement.backend.dto.EventDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[29,35] cannot find symbol
+[ERROR]   symbol:   method getImageUrl()
+[ERROR]   location: variable eventDto of type com.churchmanagement.backend.dto.EventDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[30,36] cannot find symbol
+[ERROR]   symbol:   method getStartTime()
+[ERROR]   location: variable eventDto of type com.churchmanagement.backend.dto.EventDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[31,34] cannot find symbol
+[ERROR]   symbol:   method getEndTime()
+[ERROR]   location: variable eventDto of type com.churchmanagement.backend.dto.EventDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[41,24] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.churchmanagement.backend.dto.EventDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[42,26] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable event of type com.churchmanagement.backend.model.Event
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[43,29] cannot find symbol
+[ERROR]   symbol:   method getTitle()
+[ERROR]   location: variable event of type com.churchmanagement.backend.model.Event
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[44,35] cannot find symbol
+[ERROR]   symbol:   method getDescription()
+[ERROR]   location: variable event of type com.churchmanagement.backend.model.Event
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[45,32] cannot find symbol
+[ERROR]   symbol:   method getLocation()
+[ERROR]   location: variable event of type com.churchmanagement.backend.model.Event
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[46,32] cannot find symbol
+[ERROR]   symbol:   method getImageUrl()
+[ERROR]   location: variable event of type com.churchmanagement.backend.model.Event
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[47,33] cannot find symbol
+[ERROR]   symbol:   method getStartTime()
+[ERROR]   location: variable event of type com.churchmanagement.backend.model.Event
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/EventService.java:[48,31] cannot find symbol
+[ERROR]   symbol:   method getEndTime()
+[ERROR]   location: variable event of type com.churchmanagement.backend.model.Event
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[51,42] cannot find symbol
+[ERROR]   symbol:   method getDateOfBirth()
+[ERROR]   location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[52,46] cannot find symbol
+[ERROR]   symbol:   method getProfileImageUrl()
+[ERROR]   location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[53,22] cannot find symbol
+[ERROR]   symbol:   method getFirstName()
+[ERROR]   location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[54,44] cannot find symbol
+[ERROR]   symbol:   method getFirstName()
+[ERROR]   location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[55,22] cannot find symbol
+[ERROR]   symbol:   method getLastName()
+[ERROR]   location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[56,43] cannot find symbol
+[ERROR]   symbol:   method getLastName()
+[ERROR]   location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[57,22] cannot find symbol
+[ERROR]   symbol:   method getPhone()
+[ERROR]   location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[58,40] cannot find symbol
+[ERROR]   symbol:   method getPhone()
+[ERROR]   location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[59,22] cannot find symbol
+[ERROR]   symbol:   method getAddress()
+[ERROR]   location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/controller/MemberController.java:[60,42] cannot find symbol
+[ERROR]   symbol:   method getAddress()
+[ERROR]   location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/MemberService.java:[35,31] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.churchmanagement.backend.model.Member
+[ERROR] /C:/Users/User/Desktop/myprojects/real projects/church-management/backend/src/main/java/com/churchmanagement/backend/service/MemberService.java:[36,37] cannot find symbol
+[ERROR]   symbol:   method getFirstName()
+[ERROR]   location: variable memberDto of type com.churchmanagement.backend.dto.MemberDto
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

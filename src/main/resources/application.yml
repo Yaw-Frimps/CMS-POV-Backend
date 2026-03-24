@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: church-management-backend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/church_management
+    username: postgres
+    password: ${DB_PASSWORD} # Replace with your local postgres password if different
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+server:
+  port: 8081
+  
+# JWT Configuration
+jwt:
+  secret: ${SECRET_KEY}
+  expiration: 86400000 # 1 day in ms
+
