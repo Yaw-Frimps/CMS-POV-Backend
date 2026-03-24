@@ -93,6 +93,15 @@ public class MemberController {
         if (memberDto.getAddress() != null)
             existing.setAddress(memberDto.getAddress());
 
+        // Map new fields
+        existing.setGender(memberDto.getGender());
+        existing.setMembershipStatus(memberDto.getMembershipStatus());
+        existing.setMaritalStatus(memberDto.getMaritalStatus());
+        existing.setEmergencyContact(memberDto.getEmergencyContact());
+        existing.setSpouseName(memberDto.getSpouseName());
+        existing.setChildrenData(memberDto.getChildrenData());
+        existing.setProfession(memberDto.getProfession());
+
         return ResponseEntity.ok(memberService.updateMember(id, existing));
     }
 
