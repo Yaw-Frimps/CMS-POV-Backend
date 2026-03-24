@@ -27,3 +27,11 @@ jwt:
   secret: ${SECRET_KEY}
   expiration: 86400000 # 1 day in ms
 
+# Default Admin account Configuration
+app:
+  default-admin:
+    email: ${ADMIN_EMAIL}
+    password: ${ADMIN_PASSWORD}
+    first-name: ${ADMIN_FIRSTNAME}
+    last-name: ${ADMIN_LASTNAME}
+

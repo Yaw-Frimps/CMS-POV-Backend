@@ -22,6 +22,9 @@ public class MemberService {
     private final FileStorageService fileStorageService;
     private static final  String MEMBERNOTFOUND = "Member not found";
 
+    @org.springframework.beans.factory.annotation.Value("${app.default-admin.email}")
+    private String adminEmail;
+
     public List<MemberDto> getAllMembers() {
         return memberRepository.findAll().stream()
                 .map(this::mapToDto)
@@ -53,6 +56,11 @@ public class MemberService {
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new RuntimeException(MEMBERNOTFOUND));
 
+        // Protection for default admin
+        if (member.getUser() != null && adminEmail.equalsIgnoreCase(member.getUser().getEmail())) {
+            throw new RuntimeException("Default admin details cannot be updated through the dashboard.");
+        }
+
         String oldFileName = null;
         if (member.getProfileImageUrl() != null && !member.getProfileImageUrl().isBlank()) {
             oldFileName = Paths.get(member.getProfileImageUrl()).getFileName().toString();
@@ -79,6 +87,11 @@ public class MemberService {
     public MemberDto updateMember(Long id, MemberDto memberDto) {
         Member member = memberRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException(MEMBERNOTFOUND));
+
+        // Protection for default admin
+        if (member.getUser() != null && adminEmail.equalsIgnoreCase(member.getUser().getEmail())) {
+            throw new RuntimeException("Default admin details cannot be updated through the dashboard.");
+        }
 
         member.setFirstName(memberDto.getFirstName());
         member.setLastName(memberDto.getLastName());
