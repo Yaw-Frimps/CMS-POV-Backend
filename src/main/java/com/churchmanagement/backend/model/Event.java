@@ -37,4 +37,12 @@ public class Event {
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Attendance> attendanceRecords = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+        name = "event_registrations",
+        joinColumns = @JoinColumn(name = "event_id"),
+        inverseJoinColumns = @JoinColumn(name = "member_id")
+    )
+    private List<Member> registeredMembers = new ArrayList<>();
 }

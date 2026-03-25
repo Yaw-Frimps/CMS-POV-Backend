@@ -3,6 +3,8 @@ package com.churchmanagement.backend.service;
 import com.churchmanagement.backend.dto.EventDto;
 import com.churchmanagement.backend.model.Event;
 import com.churchmanagement.backend.repository.EventRepository;
+import com.churchmanagement.backend.repository.MemberRepository;
+import com.churchmanagement.backend.model.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,14 @@ import java.util.stream.Collectors;
 public class EventService {
 
     private final EventRepository eventRepository;
+    private final MemberRepository memberRepository;
+    private final FileStorageService fileStorageService;
+
+    public String uploadImage(org.springframework.web.multipart.MultipartFile file) {
+        String id = java.util.UUID.randomUUID().toString();
+        String storedFileName = fileStorageService.storeFile(file, "events", id, null);
+        return fileStorageService.getFileUrl("events", id, storedFileName);
+    }
 
     public List<EventDto> getAllEvents() {
         return eventRepository.findAll().stream()
@@ -37,6 +47,46 @@ public class EventService {
         eventRepository.deleteById(id);
     }
 
+    public EventDto updateEvent(Long id, EventDto eventDto) {
+        Event event = eventRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Event not found"));
+        event.setTitle(eventDto.getTitle());
+        event.setDescription(eventDto.getDescription());
+        event.setLocation(eventDto.getLocation());
+        event.setImageUrl(eventDto.getImageUrl());
+        event.setStartTime(eventDto.getStartTime());
+        event.setEndTime(eventDto.getEndTime());
+        return mapToDto(eventRepository.save(event));
+    }
+
+    @org.springframework.transaction.annotation.Transactional
+    public EventDto registerForEvent(Long eventId, Long memberId) {
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new RuntimeException("Event not found"));
+        Member member = memberRepository.findById(memberId)
+                .orElseThrow(() -> new RuntimeException("Member not found"));
+
+        if (!event.getRegisteredMembers().contains(member)) {
+            event.getRegisteredMembers().add(member);
+            eventRepository.save(event);
+        }
+        return mapToDto(event);
+    }
+
+    @org.springframework.transaction.annotation.Transactional
+    public EventDto unregisterFromEvent(Long eventId, Long memberId) {
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new RuntimeException("Event not found"));
+        Member member = memberRepository.findById(memberId)
+                .orElseThrow(() -> new RuntimeException("Member not found"));
+
+        if (event.getRegisteredMembers().contains(member)) {
+            event.getRegisteredMembers().remove(member);
+            eventRepository.save(event);
+        }
+        return mapToDto(event);
+    }
+
     private EventDto mapToDto(Event event) {
         return EventDto.builder()
                 .id(event.getId())
@@ -46,6 +96,8 @@ public class EventService {
                 .imageUrl(event.getImageUrl())
                 .startTime(event.getStartTime())
                 .endTime(event.getEndTime())
+                .registeredCount(event.getRegisteredMembers() != null ? event.getRegisteredMembers().size() : 0)
+                .registeredMemberIds(event.getRegisteredMembers() != null ? event.getRegisteredMembers().stream().map(Member::getId).collect(Collectors.toList()) : java.util.Collections.emptyList())
                 .build();
     }
 }

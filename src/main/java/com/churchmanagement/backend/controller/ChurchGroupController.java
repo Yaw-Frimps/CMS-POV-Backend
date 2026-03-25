@@ -21,6 +21,12 @@ public class ChurchGroupController {
         return ResponseEntity.ok(service.getAllGroups());
     }
 
+    @PostMapping("/upload-image")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<String> uploadGroupImage(@RequestParam("file") org.springframework.web.multipart.MultipartFile file) {
+        return ResponseEntity.ok(service.uploadImage(file));
+    }
+
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ChurchGroupDto> createGroup(@RequestBody ChurchGroupDto dto) {

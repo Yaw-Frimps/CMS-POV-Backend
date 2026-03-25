@@ -17,6 +17,13 @@ public class ChurchGroupService {
 
     private final ChurchGroupRepository repository;
     private final MemberRepository memberRepository;
+    private final FileStorageService fileStorageService;
+
+    public String uploadImage(org.springframework.web.multipart.MultipartFile file) {
+        String id = java.util.UUID.randomUUID().toString();
+        String storedFileName = fileStorageService.storeFile(file, "groups", id, null);
+        return fileStorageService.getFileUrl("groups", id, storedFileName);
+    }
 
     public List<ChurchGroupDto> getAllGroups() {
         return repository.findAll().stream()
@@ -28,6 +35,7 @@ public class ChurchGroupService {
         ChurchGroup group = ChurchGroup.builder()
                 .name(dto.getName())
                 .description(dto.getDescription())
+                .imageUrl(dto.getImageUrl())
                 .meetingSchedule(dto.getMeetingSchedule())
                 .category(dto.getCategory() != null ? dto.getCategory() : "General")
                 .build();
@@ -44,6 +52,7 @@ public class ChurchGroupService {
                 .orElseThrow(() -> new IllegalArgumentException("Group not found"));
         group.setName(dto.getName());
         group.setDescription(dto.getDescription());
+        group.setImageUrl(dto.getImageUrl());
         group.setMeetingSchedule(dto.getMeetingSchedule());
         group.setCategory(dto.getCategory());
         return mapToDto(repository.save(group));
@@ -92,6 +101,7 @@ public class ChurchGroupService {
                 .id(group.getId())
                 .name(group.getName())
                 .description(group.getDescription())
+                .imageUrl(group.getImageUrl())
                 .meetingSchedule(group.getMeetingSchedule())
                 .memberCount(group.getMembers() != null ? group.getMembers().size() : 0)
                 .category(group.getCategory() != null ? group.getCategory() : "General")

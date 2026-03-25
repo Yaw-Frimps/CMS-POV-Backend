@@ -24,6 +24,9 @@ public class ChurchGroup {
 
     private String description;
     
+    @Column(length = 1000)
+    private String imageUrl;
+    
     private String category;
     
     private String meetingSchedule; // e.g., "Tuesdays 7PM"

@@ -16,6 +16,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@lombok.extern.slf4j.Slf4j
 public class MemberService {
 
     private final MemberRepository memberRepository;
@@ -56,11 +57,6 @@ public class MemberService {
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new RuntimeException(MEMBERNOTFOUND));
 
-        // Protection for default admin
-        if (member.getUser() != null && adminEmail.equalsIgnoreCase(member.getUser().getEmail())) {
-            throw new RuntimeException("Default admin details cannot be updated through the dashboard.");
-        }
-
         String oldFileName = null;
         if (member.getProfileImageUrl() != null && !member.getProfileImageUrl().isBlank()) {
             oldFileName = Paths.get(member.getProfileImageUrl()).getFileName().toString();
@@ -88,9 +84,18 @@ public class MemberService {
         Member member = memberRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException(MEMBERNOTFOUND));
 
-        // Protection for default admin
-        if (member.getUser() != null && adminEmail.equalsIgnoreCase(member.getUser().getEmail())) {
-            throw new RuntimeException("Default admin details cannot be updated through the dashboard.");
+        // Protection for default admin: preserve core identity but don't error out
+        String actualEmail = member.getUser() != null ? member.getUser().getEmail() : "";
+        boolean isDefaultAdmin = adminEmail.equalsIgnoreCase(actualEmail) || "povinternational@admin.com".equalsIgnoreCase(actualEmail);
+
+        if (isDefaultAdmin) {
+            log.info("Default admin update identified (using {}). Setting phone: {}", actualEmail, memberDto.getPhone());
+            // We still allow updating non-core fields if needed
+            member.setProfileImageUrl(memberDto.getProfileImageUrl()); // Allow image update
+            member.setPhone(memberDto.getPhone()); // Allow phone update
+            Member saved = memberRepository.save(member);
+            log.info("Default admin updated. Saved phone: {}", saved.getPhone());
+            return mapToDto(saved);
         }
 
         member.setFirstName(memberDto.getFirstName());
@@ -113,6 +118,14 @@ public class MemberService {
 
     @Transactional
     public void deleteMember(Long id) {
+        Member member = memberRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException(MEMBERNOTFOUND));
+
+        // Protection for default admin
+        if (member.getUser() != null && adminEmail.equalsIgnoreCase(member.getUser().getEmail())) {
+            throw new RuntimeException("Default admin account cannot be deleted through the dashboard.");
+        }
+
         memberRepository.deleteById(id);
     }
 

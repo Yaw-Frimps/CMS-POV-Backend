@@ -14,4 +14,5 @@ public class AuthResponse {
     private String email;
     private String role;
     private Long memberId; // Reference to the user's member profile id
+    private String profileImageUrl;
 }

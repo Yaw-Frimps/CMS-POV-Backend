@@ -56,6 +56,7 @@ public class AuthService {
                 .email(savedUser.getEmail())
                 .role(savedUser.getRole().name())
                 .memberId(savedMember.getId())
+                .profileImageUrl(savedMember.getProfileImageUrl())
                 .build();
     }
 
@@ -67,9 +68,9 @@ public class AuthService {
         var user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow();
 
-        var memberId = memberRepository.findByUserId(user.getId())
-                .map(Member::getId)
-                .orElse(null);
+        var member = memberRepository.findByUserId(user.getId()).orElse(null);
+        var memberId = member != null ? member.getId() : null;
+        var profileImageUrl = member != null ? member.getProfileImageUrl() : null;
 
         var jwtToken = jwtService.generateToken(user);
 
@@ -78,6 +79,7 @@ public class AuthService {
                 .email(user.getEmail())
                 .role(user.getRole().name())
                 .memberId(memberId)
+                .profileImageUrl(profileImageUrl)
                 .build();
     }
 }

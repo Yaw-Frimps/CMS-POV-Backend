@@ -19,6 +19,9 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
+    @org.springframework.beans.factory.annotation.Value("${app.default-admin.email}")
+    private String adminEmail;
+
     public List<UserDto> getAllUsers() {
         return userRepository.findAll().stream()
                 .map(this::mapToDto)
@@ -32,6 +35,12 @@ public class UserService {
     }
 
     public void deleteUser(Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        
+        if (adminEmail.equalsIgnoreCase(user.getEmail()) || "povinternational@admin.com".equalsIgnoreCase(user.getEmail())) {
+            throw new RuntimeException("Default admin account cannot be deleted.");
+        }
         userRepository.deleteById(id);
     }
 
@@ -45,6 +54,10 @@ public class UserService {
     public void updatePassword(Long id, PasswordUpdateRequest request) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
+
+        if (adminEmail.equalsIgnoreCase(user.getEmail()) || "povinternational@admin.com".equalsIgnoreCase(user.getEmail())) {
+            throw new RuntimeException("Default admin password cannot be changed through the dashboard.");
+        }
         
         if (!passwordEncoder.matches(request.getOldPassword(), user.getPassword())) {
             throw new IllegalArgumentException("Incorrect old password");

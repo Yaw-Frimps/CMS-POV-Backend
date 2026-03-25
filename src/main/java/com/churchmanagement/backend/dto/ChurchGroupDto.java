@@ -13,6 +13,7 @@ public class ChurchGroupDto {
     private Long id;
     private String name;
     private String description;
+    private String imageUrl;
     private String meetingSchedule;
     private String category;
     private Integer memberCount;

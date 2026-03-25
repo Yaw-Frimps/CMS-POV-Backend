@@ -19,4 +19,6 @@ public class EventDto {
     private String imageUrl;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
+    private Integer registeredCount;
+    private java.util.List<Long> registeredMemberIds;
 }

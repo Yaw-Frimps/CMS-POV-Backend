@@ -21,6 +21,12 @@ public class EventController {
         return ResponseEntity.ok(eventService.getAllEvents());
     }
 
+    @PostMapping("/upload-image")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<String> uploadEventImage(@RequestParam("file") org.springframework.web.multipart.MultipartFile file) {
+        return ResponseEntity.ok(eventService.uploadImage(file));
+    }
+
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<EventDto> createEvent(@RequestBody EventDto eventDto) {
@@ -32,5 +38,21 @@ public class EventController {
     public ResponseEntity<Void> deleteEvent(@PathVariable Long id) {
         eventService.deleteEvent(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<EventDto> updateEvent(@PathVariable Long id, @RequestBody EventDto eventDto) {
+        return ResponseEntity.ok(eventService.updateEvent(id, eventDto));
+    }
+
+    @PostMapping("/{eventId}/register/{memberId}")
+    public ResponseEntity<EventDto> registerForEvent(@PathVariable Long eventId, @PathVariable Long memberId) {
+        return ResponseEntity.ok(eventService.registerForEvent(eventId, memberId));
+    }
+
+    @DeleteMapping("/{eventId}/register/{memberId}")
+    public ResponseEntity<EventDto> unregisterFromEvent(@PathVariable Long eventId, @PathVariable Long memberId) {
+        return ResponseEntity.ok(eventService.unregisterFromEvent(eventId, memberId));
     }
 }
