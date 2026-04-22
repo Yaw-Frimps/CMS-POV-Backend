@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 import com.churchmanagement.backend.dto.PasswordUpdateRequest;
-import org.springframework.security.core.Authentication;
 
 @RestController
 @RequestMapping("/api/v1/users")

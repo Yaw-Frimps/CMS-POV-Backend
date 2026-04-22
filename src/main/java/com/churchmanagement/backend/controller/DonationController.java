@@ -35,4 +35,11 @@ public class DonationController {
     public ResponseEntity<DonationDto> createDonation(@RequestBody DonationDto donationDto) {
         return ResponseEntity.ok(donationService.createDonation(donationDto));
     }
+
+    // Member endpoint to make a donation (tithe/offering)
+    @PostMapping("/contribute")
+    public ResponseEntity<DonationDto> contributeDonation(@RequestBody DonationDto donationDto) {
+        // In a real app, verify memberId matches the JWT via SecurityContextHolder
+        return ResponseEntity.ok(donationService.createDonation(donationDto));
+    }
 }

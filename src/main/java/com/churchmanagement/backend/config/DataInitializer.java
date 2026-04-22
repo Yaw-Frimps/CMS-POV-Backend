@@ -21,28 +21,19 @@ public class DataInitializer implements CommandLineRunner {
     private final MemberRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
 
-    @org.springframework.beans.factory.annotation.Value("${app.default-admin.email}")
-    private String adminEmail;
-
-    @org.springframework.beans.factory.annotation.Value("${app.default-admin.password}")
-    private String adminPassword;
-
-    @org.springframework.beans.factory.annotation.Value("${app.default-admin.first-name}")
-    private String adminFirstName;
-
-    @org.springframework.beans.factory.annotation.Value("${app.default-admin.last-name}")
-    private String adminLastName;
+    private final AppProperties appProperties;
 
     @Override
     @Transactional
     public void run(String... args) throws Exception {
+        String adminEmail = appProperties.getDefaultAdmin().getEmail();
         if (!userRepository.existsByEmail(adminEmail)) {
             log.info("Default admin not found. Creating default admin account...");
             
             // Create User
             User adminUser = User.builder()
                     .email(adminEmail)
-                    .password(passwordEncoder.encode(adminPassword))
+                    .password(passwordEncoder.encode(appProperties.getDefaultAdmin().getPassword()))
                     .role(Role.ADMIN)
                     .build();
             
@@ -50,8 +41,8 @@ public class DataInitializer implements CommandLineRunner {
             
             // Create Member Profile
             Member adminProfile = Member.builder()
-                    .firstName(adminFirstName)
-                    .lastName(adminLastName)
+                    .firstName(appProperties.getDefaultAdmin().getFirstName())
+                    .lastName(appProperties.getDefaultAdmin().getLastName())
                     .gender("Other")
                     .membershipStatus("Leader")
                     .user(savedUser)
