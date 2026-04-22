@@ -13,6 +13,10 @@ import java.util.Optional;
 public interface MemberRepository extends JpaRepository<Member, Long> {
     Optional<Member> findByUserId(Long userId);
 
+    Optional<Member> findByPhoneAndUserIsNull(String phone);
+
+    List<Member> findByUserIsNull();
+
     @Query("SELECT m FROM Member m WHERE m.dateOfBirth IS NOT NULL AND " +
            "EXTRACT(MONTH FROM m.dateOfBirth) = :month AND " +
            "EXTRACT(DAY FROM m.dateOfBirth) = :day")

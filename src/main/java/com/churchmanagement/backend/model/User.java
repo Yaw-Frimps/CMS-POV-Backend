@@ -37,6 +37,10 @@ public class User implements UserDetails {
 
     private LocalDateTime createdAt;
 
+    @Column(nullable = false)
+    @Builder.Default
+    private boolean profileComplete = false;
+
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();

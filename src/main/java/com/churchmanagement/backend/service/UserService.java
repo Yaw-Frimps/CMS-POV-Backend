@@ -67,6 +67,13 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public void markProfileComplete(Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        user.setProfileComplete(true);
+        userRepository.save(user);
+    }
+
     private UserDto mapToDto(User user) {
         return UserDto.builder()
                 .id(user.getId())

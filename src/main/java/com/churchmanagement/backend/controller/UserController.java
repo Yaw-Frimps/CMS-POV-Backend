@@ -44,10 +44,14 @@ public class UserController {
     }
 
     @PutMapping("/{id}/password")
-    // Let any authenticated user attempt finding their ID, the service could also enforce it, but typically allowing users to hit the endpoint is fine if they own it.
-    // For simplicity, we just allow authenticated users. A real app checks if current user ID matches path variable.
     public ResponseEntity<Void> updatePassword(@PathVariable Long id, @RequestBody PasswordUpdateRequest request) {
         userService.updatePassword(id, request);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/{id}/complete-profile")
+    public ResponseEntity<Void> completeProfile(@PathVariable Long id) {
+        userService.markProfileComplete(id);
         return ResponseEntity.noContent().build();
     }
 }

@@ -45,18 +45,41 @@ public class AuthService {
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(request.isAdmin() ? Role.ADMIN : Role.USER)
+                .profileComplete(false)
                 .build();
 
         var savedUser = userRepository.save(user);
 
-        // Auto-create a member profile
-        var member = Member.builder()
-                .firstName(request.getFirstName())
-                .lastName(request.getLastName())
-                .user(savedUser)
-                .build();
+        // Try to link to a pre-registered member record by phone number
+        boolean linked = false;
+        Member savedMember;
+        String phone = request.getPhone();
 
-        var savedMember = memberRepository.save(member);
+        if (phone != null && !phone.isBlank()) {
+            var existingMember = memberRepository.findByPhoneAndUserIsNull(phone.trim());
+            if (existingMember.isPresent()) {
+                // Link the existing pre-registered record
+                var memberToLink = existingMember.get();
+                memberToLink.setUser(savedUser);
+                savedMember = memberRepository.save(memberToLink);
+                linked = true;
+            } else {
+                // No matching pre-registered record — create a new blank profile
+                savedMember = memberRepository.save(Member.builder()
+                        .firstName(request.getFirstName())
+                        .lastName(request.getLastName())
+                        .phone(phone.trim())
+                        .user(savedUser)
+                        .build());
+            }
+        } else {
+            // No phone provided — create a blank profile
+            savedMember = memberRepository.save(Member.builder()
+                    .firstName(request.getFirstName())
+                    .lastName(request.getLastName())
+                    .user(savedUser)
+                    .build());
+        }
 
         var jwtToken = jwtService.generateToken(savedUser);
 
@@ -66,6 +89,8 @@ public class AuthService {
                 .role(savedUser.getRole().name())
                 .memberId(savedMember.getId())
                 .profileImageUrl(savedMember.getProfileImageUrl())
+                .profileComplete(false)
+                .profileLinked(linked)
                 .build();
     }
 
@@ -89,6 +114,8 @@ public class AuthService {
                 .role(user.getRole().name())
                 .memberId(memberId)
                 .profileImageUrl(profileImageUrl)
+                .profileComplete(user.isProfileComplete())
+                .profileLinked(false)
                 .build();
     }
 

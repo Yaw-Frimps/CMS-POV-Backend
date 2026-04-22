@@ -15,4 +15,6 @@ public class AuthResponse {
     private String role;
     private Long memberId; // Reference to the user's member profile id
     private String profileImageUrl;
+    private boolean profileComplete;
+    private boolean profileLinked; // true when signup linked to a pre-registered record
 }
