@@ -46,6 +46,7 @@ public class GalleryService {
     }
 
     @Transactional
+    @SuppressWarnings("null")
     public GalleryImageDto uploadImage(MultipartFile file, String title, String description, boolean isPublic, boolean isHero, boolean isLanding, int sortOrder) {
         // Use a flat structure for gallery to simplify path resolution
         String storedFileName = fileStorageService.storeFile(file, "gallery", "", null);
@@ -61,10 +62,12 @@ public class GalleryService {
                 .sortOrder(sortOrder)
                 .build();
 
-        return mapToDto(galleryImageRepository.save(image));
+        GalleryImage savedImage = galleryImageRepository.save(image);
+        return mapToDto(savedImage);
     }
 
     @Transactional
+    @SuppressWarnings("null")
     public GalleryImageDto updateImage(Long id, GalleryImageDto dto) {
         GalleryImage image = galleryImageRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Image not found"));
@@ -76,10 +79,12 @@ public class GalleryService {
         image.setShowOnLanding(dto.isShowOnLanding());
         image.setSortOrder(dto.getSortOrder());
         
-        return mapToDto(galleryImageRepository.save(image));
+        GalleryImage savedImage = galleryImageRepository.save(image);
+        return mapToDto(savedImage);
     }
 
     @Transactional
+    @SuppressWarnings("null")
     public void deleteImage(Long id) {
         galleryImageRepository.deleteById(id);
     }

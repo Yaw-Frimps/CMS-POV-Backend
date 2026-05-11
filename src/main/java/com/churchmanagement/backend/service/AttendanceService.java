@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -26,16 +25,17 @@ public class AttendanceService {
         public List<AttendanceDto> getAttendanceByEventId(Long eventId) {
                 return attendanceRepository.findByEventId(eventId).stream()
                                 .map(this::mapToDto)
-                                .collect(Collectors.toList());
+                                .toList();
         }
 
         public List<AttendanceDto> getAttendanceByMemberId(Long memberId) {
                 return attendanceRepository.findByMemberId(memberId).stream()
                                 .map(this::mapToDto)
-                                .collect(Collectors.toList());
+                                .toList();
         }
 
         @Transactional
+        @SuppressWarnings("null")
         public AttendanceDto checkIn(AttendanceDto attendanceDto) {
                 Event event = eventRepository.findById(attendanceDto.getEventId())
                                 .orElseThrow(() -> new RuntimeException("Event not found"));
@@ -43,7 +43,7 @@ public class AttendanceService {
                 Member member = memberRepository.findById(attendanceDto.getMemberId())
                                 .orElseThrow(() -> new RuntimeException("Member not found"));
 
-                // Only allowing one checkin per user per event simply for this version
+                // Only allowing one check-in per user per event simply for this version
                 Attendance attendance = Attendance.builder()
                                 .event(event)
                                 .member(member)
@@ -53,7 +53,8 @@ public class AttendanceService {
                                                                 : LocalDateTime.now())
                                 .build();
 
-                return mapToDto(attendanceRepository.save(attendance));
+                Attendance savedAttendance = attendanceRepository.save(attendance);
+                return mapToDto(savedAttendance);
         }
 
         private AttendanceDto mapToDto(Attendance attendance) {

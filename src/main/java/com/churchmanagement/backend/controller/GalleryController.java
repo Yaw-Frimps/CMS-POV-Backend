@@ -4,6 +4,7 @@ import com.churchmanagement.backend.dto.GalleryImageDto;
 import com.churchmanagement.backend.service.GalleryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -34,11 +35,13 @@ public class GalleryController {
 
     // Admin endpoints
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<GalleryImageDto>> getAllImages() {
         return ResponseEntity.ok(galleryService.getAllImages());
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<GalleryImageDto> uploadImage(
             @RequestParam("file") MultipartFile file,
             @RequestParam(value = "title", required = false) String title,
@@ -52,11 +55,13 @@ public class GalleryController {
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<GalleryImageDto> updateImage(@PathVariable Long id, @RequestBody GalleryImageDto dto) {
         return ResponseEntity.ok(galleryService.updateImage(id, dto));
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> deleteImage(@PathVariable Long id) {
         galleryService.deleteImage(id);
         return ResponseEntity.noContent().build();

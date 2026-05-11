@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @RequiredArgsConstructor
@@ -19,7 +21,7 @@ public class EventService {
     private final MemberRepository memberRepository;
     private final FileStorageService fileStorageService;
 
-    public String uploadImage(org.springframework.web.multipart.MultipartFile file) {
+    public String uploadImage(MultipartFile file) {
         String id = java.util.UUID.randomUUID().toString();
         String storedFileName = fileStorageService.storeFile(file, "events", id, null);
         return fileStorageService.getFileUrl("events", id, storedFileName);
@@ -31,6 +33,8 @@ public class EventService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
+    @SuppressWarnings("null")
     public EventDto createEvent(EventDto eventDto) {
         Event event = Event.builder()
                 .title(eventDto.getTitle())
@@ -40,13 +44,18 @@ public class EventService {
                 .startTime(eventDto.getStartTime())
                 .endTime(eventDto.getEndTime())
                 .build();
-        return mapToDto(eventRepository.save(event));
+        Event savedEvent = eventRepository.save(event);
+        return mapToDto(savedEvent);
     }
 
+    @Transactional
+    @SuppressWarnings("null")
     public void deleteEvent(Long id) {
         eventRepository.deleteById(id);
     }
 
+    @Transactional
+    @SuppressWarnings("null")
     public EventDto updateEvent(Long id, EventDto eventDto) {
         Event event = eventRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Event not found"));
@@ -56,10 +65,12 @@ public class EventService {
         event.setImageUrl(eventDto.getImageUrl());
         event.setStartTime(eventDto.getStartTime());
         event.setEndTime(eventDto.getEndTime());
-        return mapToDto(eventRepository.save(event));
+        Event savedEvent = eventRepository.save(event);
+        return mapToDto(savedEvent);
     }
 
-    @org.springframework.transaction.annotation.Transactional
+    @Transactional
+    @SuppressWarnings("null")
     public EventDto registerForEvent(Long eventId, Long memberId) {
         Event event = eventRepository.findById(eventId)
                 .orElseThrow(() -> new RuntimeException("Event not found"));
@@ -73,7 +84,8 @@ public class EventService {
         return mapToDto(event);
     }
 
-    @org.springframework.transaction.annotation.Transactional
+    @Transactional
+    @SuppressWarnings("null")
     public EventDto unregisterFromEvent(Long eventId, Long memberId) {
         Event event = eventRepository.findById(eventId)
                 .orElseThrow(() -> new RuntimeException("Event not found"));

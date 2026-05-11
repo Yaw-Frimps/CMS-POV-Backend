@@ -25,6 +25,7 @@ public class DonationController {
 
 
     @GetMapping("/member/{memberId}")
+    @PreAuthorize("hasRole('ADMIN') or #memberId == principal?.memberProfile?.id")
     public ResponseEntity<List<DonationDto>> getMemberDonations(@PathVariable Long memberId) {
         return ResponseEntity.ok(donationService.getDonationsByMemberId(memberId));
     }
@@ -38,8 +39,8 @@ public class DonationController {
 
     // Member endpoint to make a donation (tithe/offering)
     @PostMapping("/contribute")
+    @PreAuthorize("hasRole('ADMIN') or #donationDto.memberId == principal?.memberProfile?.id")
     public ResponseEntity<DonationDto> contributeDonation(@RequestBody DonationDto donationDto) {
-        // In a real app, verify memberId matches the JWT via SecurityContextHolder
         return ResponseEntity.ok(donationService.createDonation(donationDto));
     }
 }

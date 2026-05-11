@@ -5,6 +5,7 @@ import com.churchmanagement.backend.model.MeetingAttendance;
 import com.churchmanagement.backend.repository.MeetingAttendanceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,13 +16,16 @@ public class MeetingAttendanceServiceImpl implements MeetingAttendanceService {
     private final MeetingAttendanceRepository meetingAttendanceRepository;
 
     @Override
+    @Transactional
+    @SuppressWarnings("null")
     public MeetingAttendance createAttendance(MeetingAttendanceRequest request) {
         MeetingAttendance attendance = MeetingAttendance.builder()
                 .meetingName(request.getMeetingName())
                 .meetingDate(request.getMeetingDate())
                 .attendeeCount(request.getAttendeeCount())
                 .build();
-        return meetingAttendanceRepository.save(attendance);
+        MeetingAttendance saved = meetingAttendanceRepository.save(attendance);
+        return saved;
     }
 
     @Override
@@ -30,6 +34,8 @@ public class MeetingAttendanceServiceImpl implements MeetingAttendanceService {
     }
 
     @Override
+    @Transactional
+    @SuppressWarnings("null")
     public MeetingAttendance updateAttendance(Long id, MeetingAttendanceRequest request) {
         MeetingAttendance attendance = meetingAttendanceRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Attendance record not found"));
@@ -38,10 +44,13 @@ public class MeetingAttendanceServiceImpl implements MeetingAttendanceService {
         attendance.setMeetingDate(request.getMeetingDate());
         attendance.setAttendeeCount(request.getAttendeeCount());
         
-        return meetingAttendanceRepository.save(attendance);
+        MeetingAttendance saved = meetingAttendanceRepository.save(attendance);
+        return saved;
     }
 
     @Override
+    @Transactional
+    @SuppressWarnings("null")
     public void deleteAttendance(Long id) {
         meetingAttendanceRepository.deleteById(id);
     }

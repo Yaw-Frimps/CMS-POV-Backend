@@ -10,7 +10,10 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 @RequiredArgsConstructor
@@ -33,13 +36,13 @@ public class BirthdayNotificationTask {
 
         List<Member> upcomingBirthdays = memberRepository.findByBirthdayMonthAndDay(month, day);
 
-        List<String> recipients = new java.util.ArrayList<>(appProperties.getNotifications().getBirthday().getEmails());
+        List<String> recipients = new ArrayList<>(appProperties.getNotifications().getBirthday().getEmails());
         recipients.add(appProperties.getDefaultAdmin().getEmail());
 
         for (Member member : upcomingBirthdays) {
             String subject = "🎂 Birthday Reminder: " + member.getFirstName() + " " + member.getLastName();
             
-            java.util.Map<String, Object> variables = new java.util.HashMap<>();
+            Map<String, Object> variables = new HashMap<>();
             variables.put("memberName", member.getFirstName() + " " + member.getLastName());
             variables.put("birthdayDate", targetDate.getMonth().name() + " " + targetDate.getDayOfMonth());
 

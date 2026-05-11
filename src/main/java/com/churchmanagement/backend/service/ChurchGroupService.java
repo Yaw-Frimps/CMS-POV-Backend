@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @RequiredArgsConstructor
@@ -19,7 +21,7 @@ public class ChurchGroupService {
     private final MemberRepository memberRepository;
     private final FileStorageService fileStorageService;
 
-    public String uploadImage(org.springframework.web.multipart.MultipartFile file) {
+    public String uploadImage(MultipartFile file) {
         String id = java.util.UUID.randomUUID().toString();
         String storedFileName = fileStorageService.storeFile(file, "groups", id, null);
         return fileStorageService.getFileUrl("groups", id, storedFileName);
@@ -31,6 +33,8 @@ public class ChurchGroupService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
+    @SuppressWarnings("null")
     public ChurchGroupDto createGroup(ChurchGroupDto dto) {
         ChurchGroup group = ChurchGroup.builder()
                 .name(dto.getName())
@@ -39,14 +43,18 @@ public class ChurchGroupService {
                 .meetingSchedule(dto.getMeetingSchedule())
                 .category(dto.getCategory() != null ? dto.getCategory() : "General")
                 .build();
-        return mapToDto(repository.save(group));
+        ChurchGroup savedGroup = repository.save(group);
+        return mapToDto(savedGroup);
     }
 
+    @Transactional
+    @SuppressWarnings("null")
     public void deleteGroup(Long id) {
         repository.deleteById(id);
     }
 
-    @org.springframework.transaction.annotation.Transactional
+    @Transactional
+    @SuppressWarnings("null")
     public ChurchGroupDto updateGroup(Long id, ChurchGroupDto dto) {
         ChurchGroup group = repository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Group not found"));
@@ -55,10 +63,12 @@ public class ChurchGroupService {
         group.setImageUrl(dto.getImageUrl());
         group.setMeetingSchedule(dto.getMeetingSchedule());
         group.setCategory(dto.getCategory());
-        return mapToDto(repository.save(group));
+        ChurchGroup savedGroup = repository.save(group);
+        return mapToDto(savedGroup);
     }
 
-    @org.springframework.transaction.annotation.Transactional
+    @Transactional
+    @SuppressWarnings("null")
     public ChurchGroupDto joinGroup(Long groupId, Long memberId) {
         ChurchGroup group = repository.findById(groupId)
                 .orElseThrow(() -> new IllegalArgumentException("Group not found"));
@@ -79,7 +89,8 @@ public class ChurchGroupService {
         return mapToDto(group);
     }
 
-    @org.springframework.transaction.annotation.Transactional
+    @Transactional
+    @SuppressWarnings("null")
     public ChurchGroupDto leaveGroup(Long groupId, Long memberId) {
         ChurchGroup group = repository.findById(groupId)
                 .orElseThrow(() -> new IllegalArgumentException("Group not found"));

@@ -36,6 +36,7 @@ public class AuthService {
     private final EmailService emailService;
 
     @Transactional
+    @SuppressWarnings("null")
     public AuthResponse register(RegisterRequest request) {
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new IllegalArgumentException("Email already in use");
@@ -61,24 +62,27 @@ public class AuthService {
                 // Link the existing pre-registered record
                 var memberToLink = existingMember.get();
                 memberToLink.setUser(savedUser);
-                savedMember = memberRepository.save(memberToLink);
+                Member savedMemberLinked = memberRepository.save(memberToLink);
+                savedMember = savedMemberLinked;
                 linked = true;
             } else {
                 // No matching pre-registered record — create a new blank profile
-                savedMember = memberRepository.save(Member.builder()
+                Member savedMemberNew = memberRepository.save(Member.builder()
                         .firstName(request.getFirstName())
                         .lastName(request.getLastName())
                         .phone(phone.trim())
                         .user(savedUser)
                         .build());
+                savedMember = savedMemberNew;
             }
         } else {
             // No phone provided — create a blank profile
-            savedMember = memberRepository.save(Member.builder()
+            Member savedMemberNoPhone = memberRepository.save(Member.builder()
                     .firstName(request.getFirstName())
                     .lastName(request.getLastName())
                     .user(savedUser)
                     .build());
+            savedMember = savedMemberNoPhone;
         }
 
         var jwtToken = jwtService.generateToken(savedUser);
@@ -120,6 +124,7 @@ public class AuthService {
     }
 
     @Transactional
+    @SuppressWarnings("null")
     public void forgotPassword(String email) throws MessagingException {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new IllegalArgumentException("User not found with email: " + email));

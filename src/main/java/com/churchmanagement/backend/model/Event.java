@@ -36,6 +36,7 @@ public class Event {
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
     @JsonIgnore
+    @Builder.Default
     private List<Attendance> attendanceRecords = new ArrayList<>();
 
     @ManyToMany
@@ -44,5 +45,6 @@ public class Event {
         joinColumns = @JoinColumn(name = "event_id"),
         inverseJoinColumns = @JoinColumn(name = "member_id")
     )
+    @Builder.Default
     private List<Member> registeredMembers = new ArrayList<>();
 }

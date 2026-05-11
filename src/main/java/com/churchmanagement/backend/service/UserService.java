@@ -6,20 +6,24 @@ import com.churchmanagement.backend.model.Role;
 import com.churchmanagement.backend.model.User;
 import com.churchmanagement.backend.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    @org.springframework.beans.factory.annotation.Value("${app.default-admin.email}")
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
+
+    @Value("${app.default-admin.email}")
     private String adminEmail;
 
     public List<UserDto> getAllUsers() {
@@ -28,45 +32,57 @@ public class UserService {
                 .toList();
     }
 
+    @SuppressWarnings("null")
     public UserDto getUserById(Long id) {
         return userRepository.findById(id)
                 .map(this::mapToDto)
                 .orElseThrow(() -> new RuntimeException("User not found"));
     }
 
+    @Transactional
+    @SuppressWarnings("null")
     public void deleteUser(Long id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
-        
-        if (adminEmail.equalsIgnoreCase(user.getEmail()) || "povinternational@admin.com".equalsIgnoreCase(user.getEmail())) {
+
+        if (adminEmail.equalsIgnoreCase(user.getEmail())
+                || "povinternational@admin.com".equalsIgnoreCase(user.getEmail())) {
             throw new RuntimeException("Default admin account cannot be deleted.");
         }
         userRepository.deleteById(id);
     }
 
+    @Transactional
+    @SuppressWarnings("null")
     public UserDto updateUserRole(Long id, String roleStr) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
         user.setRole(Role.valueOf(roleStr));
-        return mapToDto(userRepository.save(user));
+        User savedUser = userRepository.save(user);
+        return mapToDto(savedUser);
     }
 
+    @Transactional
+    @SuppressWarnings("null")
     public void updatePassword(Long id, PasswordUpdateRequest request) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        if (adminEmail.equalsIgnoreCase(user.getEmail()) || "povinternational@admin.com".equalsIgnoreCase(user.getEmail())) {
+        if (adminEmail.equalsIgnoreCase(user.getEmail())
+                || "povinternational@admin.com".equalsIgnoreCase(user.getEmail())) {
             throw new RuntimeException("Default admin password cannot be changed through the dashboard.");
         }
-        
+
         if (!passwordEncoder.matches(request.getOldPassword(), user.getPassword())) {
             throw new IllegalArgumentException("Incorrect old password");
         }
-        
+
         user.setPassword(passwordEncoder.encode(request.getNewPassword()));
         userRepository.save(user);
     }
 
+    @Transactional
+    @SuppressWarnings("null")
     public void markProfileComplete(Long id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));

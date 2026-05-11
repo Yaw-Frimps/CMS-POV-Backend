@@ -5,6 +5,7 @@ import com.churchmanagement.backend.model.Expenditure;
 import com.churchmanagement.backend.repository.ExpenditureRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,12 +22,16 @@ public class ExpenditureService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
+    @SuppressWarnings("null")
     public ExpenditureDto createExpenditure(ExpenditureDto dto) {
         Expenditure expenditure = convertToEntity(dto);
         Expenditure saved = expenditureRepository.save(expenditure);
         return convertToDto(saved);
     }
 
+    @Transactional
+    @SuppressWarnings("null")
     public void deleteExpenditure(Long id) {
         expenditureRepository.deleteById(id);
     }

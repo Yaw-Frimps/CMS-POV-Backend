@@ -14,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/members")
@@ -24,11 +23,13 @@ public class MemberController {
     private final MemberService memberService;
 
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<MemberDto>> getAllMembers() {
         return ResponseEntity.ok(memberService.getAllMembers());
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN') or #id == principal?.memberProfile?.id")
     public ResponseEntity<MemberDto> getMemberById(@PathVariable Long id) {
         return ResponseEntity.ok(memberService.getMemberById(id));
     }
@@ -48,6 +49,7 @@ public class MemberController {
     }
 
     @PostMapping("/{memberId}/profile-image")
+    @PreAuthorize("hasRole('ADMIN') or #memberId == principal?.memberProfile?.id")
     public ResponseEntity<UploadResponseDto> uploadProfileImage(
             @PathVariable Long memberId,
             @RequestParam("profileImage") MultipartFile profileImage,
@@ -76,6 +78,7 @@ public class MemberController {
     }
 
     @PutMapping("/{id}/profile")
+    @PreAuthorize("hasRole('ADMIN') or #id == principal?.memberProfile?.id")
     public ResponseEntity<MemberDto> updateMemberProfile(
             @PathVariable Long id,
             @RequestBody MemberDto memberDto) {
@@ -84,14 +87,18 @@ public class MemberController {
         MemberDto existing = memberService.getMemberById(id);
         existing.setDateOfBirth(memberDto.getDateOfBirth());
         existing.setProfileImageUrl(memberDto.getProfileImageUrl());
-        if (memberDto.getFirstName() != null)
+        if (memberDto.getFirstName() != null) {
             existing.setFirstName(memberDto.getFirstName());
-        if (memberDto.getLastName() != null)
+        }
+        if (memberDto.getLastName() != null) {
             existing.setLastName(memberDto.getLastName());
-        if (memberDto.getPhone() != null)
+        }
+        if (memberDto.getPhone() != null) {
             existing.setPhone(memberDto.getPhone());
-        if (memberDto.getAddress() != null)
+        }
+        if (memberDto.getAddress() != null) {
             existing.setAddress(memberDto.getAddress());
+        }
 
         // Map new fields
         existing.setGender(memberDto.getGender());

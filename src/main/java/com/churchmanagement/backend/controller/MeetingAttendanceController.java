@@ -15,7 +15,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/attendance")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:5173") // Assuming standard vite port for local dev
 public class MeetingAttendanceController {
 
     private final MeetingAttendanceService meetingAttendanceService;

@@ -1,14 +1,14 @@
 package com.churchmanagement.backend.config;
 
-import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
-
+import org.springframework.context.annotation.Configuration;
+import lombok.Data;
 import java.util.List;
+import java.util.ArrayList;
 
-@Data
-@Component
+@Configuration
 @ConfigurationProperties(prefix = "app")
+@Data
 public class AppProperties {
     private DefaultAdmin defaultAdmin = new DefaultAdmin();
     private Notifications notifications = new Notifications();
@@ -27,7 +27,7 @@ public class AppProperties {
 
         @Data
         public static class Birthday {
-            private List<String> emails;
+            private List<String> emails = new ArrayList<>();
         }
     }
 }

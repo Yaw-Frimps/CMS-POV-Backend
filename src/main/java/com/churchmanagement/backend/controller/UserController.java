@@ -44,12 +44,14 @@ public class UserController {
     }
 
     @PutMapping("/{id}/password")
+    @PreAuthorize("hasRole('ADMIN') or #id == principal.id")
     public ResponseEntity<Void> updatePassword(@PathVariable Long id, @RequestBody PasswordUpdateRequest request) {
         userService.updatePassword(id, request);
         return ResponseEntity.noContent().build();
     }
 
     @PostMapping("/{id}/complete-profile")
+    @PreAuthorize("hasRole('ADMIN') or #id == principal.id")
     public ResponseEntity<Void> completeProfile(@PathVariable Long id) {
         userService.markProfileComplete(id);
         return ResponseEntity.noContent().build();

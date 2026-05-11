@@ -14,16 +14,19 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+
 @Service
 @RequiredArgsConstructor
-@lombok.extern.slf4j.Slf4j
+@Slf4j
 public class MemberService {
 
     private final MemberRepository memberRepository;
     private final FileStorageService fileStorageService;
-    private static final  String MEMBERNOTFOUND = "Member not found";
+    private static final String MEMBERNOTFOUND = "Member not found";
 
-    @org.springframework.beans.factory.annotation.Value("${app.default-admin.email}")
+    @Value("${app.default-admin.email}")
     private String adminEmail;
 
     public List<MemberDto> getAllMembers() {
@@ -32,6 +35,7 @@ public class MemberService {
                 .toList();
     }
 
+    @SuppressWarnings("null")
     public MemberDto getMemberById(Long id) {
         return memberRepository.findById(id)
                 .map(this::mapToDto)
@@ -39,6 +43,7 @@ public class MemberService {
     }
 
     @Transactional
+    @SuppressWarnings("null")
     public MemberDto createMember(MemberDto memberDto) {
         Member member = Member.builder()
                 .firstName(memberDto.getFirstName())
@@ -49,10 +54,12 @@ public class MemberService {
                 .profileImageUrl(memberDto.getProfileImageUrl())
                 .joinedDate(memberDto.getJoinedDate() != null ? memberDto.getJoinedDate() : java.time.LocalDate.now())
                 .build();
-        return mapToDto(memberRepository.save(member));
+        Member savedMember = memberRepository.save(member);
+        return mapToDto(savedMember);
     }
 
     @Transactional
+    @SuppressWarnings("null")
     public MemberDto uploadProfileImage(Long memberId, MultipartFile file, LocalDate dateOfBirth) {
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new RuntimeException(MEMBERNOTFOUND));
@@ -80,6 +87,7 @@ public class MemberService {
     }
 
     @Transactional
+    @SuppressWarnings("null")
     public MemberDto updateMember(Long id, MemberDto memberDto) {
         Member member = memberRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException(MEMBERNOTFOUND));
@@ -113,10 +121,12 @@ public class MemberService {
         member.setChildrenData(memberDto.getChildrenData());
         member.setProfession(memberDto.getProfession());
 
-        return mapToDto(memberRepository.save(member));
+        Member savedMember = memberRepository.save(member);
+        return mapToDto(savedMember);
     }
 
     @Transactional
+    @SuppressWarnings("null")
     public void deleteMember(Long id) {
         Member member = memberRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException(MEMBERNOTFOUND));
@@ -129,6 +139,7 @@ public class MemberService {
         memberRepository.deleteById(id);
     }
 
+    @SuppressWarnings("null")
     public List<ChurchGroupDto> getMemberGroups(Long id) {
         Member member = memberRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException(MEMBERNOTFOUND));

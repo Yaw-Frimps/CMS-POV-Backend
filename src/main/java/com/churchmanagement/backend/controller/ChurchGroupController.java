@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class ChurchGroupController {
 
     @PostMapping("/upload-image")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<String> uploadGroupImage(@RequestParam("file") org.springframework.web.multipart.MultipartFile file) {
+    public ResponseEntity<String> uploadGroupImage(@RequestParam("file") MultipartFile file) {
         return ResponseEntity.ok(service.uploadImage(file));
     }
 
@@ -49,6 +50,7 @@ public class ChurchGroupController {
     }
 
     @PostMapping("/{groupId}/members/{memberId}")
+    @PreAuthorize("hasRole('ADMIN') or #memberId == principal?.memberProfile?.id")
     public ResponseEntity<ChurchGroupDto> joinGroup(
             @PathVariable Long groupId,
             @PathVariable Long memberId) {
@@ -56,6 +58,7 @@ public class ChurchGroupController {
     }
 
     @DeleteMapping("/{groupId}/members/{memberId}")
+    @PreAuthorize("hasRole('ADMIN') or #memberId == principal?.memberProfile?.id")
     public ResponseEntity<ChurchGroupDto> leaveGroup(
             @PathVariable Long groupId,
             @PathVariable Long memberId) {

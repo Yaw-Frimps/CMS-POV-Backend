@@ -25,6 +25,7 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     @Transactional
+    @SuppressWarnings("null")
     public void run(String... args) throws Exception {
         String adminEmail = appProperties.getDefaultAdmin().getEmail();
         if (!userRepository.existsByEmail(adminEmail)) {

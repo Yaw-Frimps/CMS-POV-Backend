@@ -25,24 +25,26 @@ public class EmailService {
         message.setSubject(subject);
         message.setText(body);
         message.setFrom("churchmanagement@noreply.com");
-        
+
         mailSender.send(message);
     }
 
-    public void sendHtmlEmail(String to, String subject, String templateName, Map<String, Object> variables) throws MessagingException {
+    @SuppressWarnings("null")
+    public void sendHtmlEmail(String to, String subject, String templateName, Map<String, Object> variables)
+            throws MessagingException {
         MimeMessage mimeMessage = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
-        
+
         Context context = new Context();
         context.setVariables(variables);
-        
+
         String htmlContent = templateEngine.process(templateName, context);
-        
+
         helper.setTo(to);
         helper.setSubject(subject);
         helper.setText(htmlContent, true);
         helper.setFrom("churchmanagement@noreply.com");
-        
+
         mailSender.send(mimeMessage);
     }
 }
